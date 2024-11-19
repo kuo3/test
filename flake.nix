@@ -10,7 +10,6 @@
     self,
     nixpkgs,
     flake-utils,
-    nix-envs,
   }:
     flake-utils.lib.eachDefaultSystem (
       system: let
@@ -23,7 +22,7 @@
           default = self.packages.${system}.${packageName};
         };
 
-        formatter = nix-envs.${system}.nixpkgs-fmt;
+        formatter = pkgs.nixpkgs-fmt;
         devShells = {
         };
 
